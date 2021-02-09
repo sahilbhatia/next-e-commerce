@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
-import { wrapper } from '../store'
-import { setCount } from '../actions'
+import { wrapper } from '../lib/store'
+import { setCount } from '../lib/actions'
 
 const Index = () => {
   const dispatch = useDispatch()
@@ -17,6 +17,6 @@ const Index = () => {
   )
 }
 
-export const getStaticProps = wrapper.getStaticProps(async ({ store }) => {})
+export const getStaticProps = wrapper.getStaticProps(async () => {})
 
 export default Index

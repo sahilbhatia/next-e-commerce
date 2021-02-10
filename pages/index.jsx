@@ -17,6 +17,6 @@ const Index = () => {
   )
 }
 
-export const getStaticProps = wrapper.getStaticProps(async () => {})
+// export const getStaticProps = wrapper.getStaticProps(async () => {})
 
 export default Index

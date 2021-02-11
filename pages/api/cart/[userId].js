@@ -22,14 +22,12 @@ export default (req, res) => {
     res.status(200).json(cart[userId])
   }
   if (req.method === 'POST') {
-    // const { email, password } = req.body
-    // const userFound = users.find(
-    //   (user) => user.email === email && user.password === password
-    // )
-    //
-    // if (userFound) {
-    //   res.status(200).json({ name: userFound.name, role: userFound.role })
-    // }
+    const {
+      query: { userId },
+      body: { updatedCart }
+    } = req
+    cart[userId] = updatedCart
+    res.status(200).send()
   }
   res.status(400).send()
 }

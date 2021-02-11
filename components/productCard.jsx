@@ -3,15 +3,16 @@ import QuantityChanger from './quantityChanger'
 const ProductCard = (props) => {
   const {
     product,
-    index,
     productInCart,
     productQuantity,
     addItemToCart,
     changeItemQuantity
   } = props
   return (
-    <div key={index}>
-      <img src={product.thumbnailUrl} className="w-full" alt="thumbnail" />
+    <div className="max-w-xs rounded bg-gray-200 overflow-ellipsis m-4">
+      <div className="px-4 py-4">
+        <img src={product.thumbnailUrl} className="w-auto" alt="thumbnail" />
+      </div>
       <div className="px-4 py-4">
         <div className="tracking-wide text-lg">
           <div className="inline-block font-bold">Name:&nbsp;</div>

@@ -1,4 +1,5 @@
 import ProductCard from '../components/productCard'
+import NavBar from '../components/navBar'
 import { useProducts, useCart } from '../utils/fetcher'
 import { updateCart } from '../utils/api'
 
@@ -11,11 +12,8 @@ const Products = () => {
   const addItemToCart = async (productId) => {
     const cartClone = { ...cart }
     cartClone[productId] = 1
-    // mutate locally without revalidation
     mutateCart(cartClone, false)
-    // send POST to update cart
     await updateCart(1, cartClone)
-    // trigger validation
     mutateCart()
   }
 
@@ -26,27 +24,22 @@ const Products = () => {
     } else {
       cartClone[productId] = quantity
     }
-    // mutate locally without revalidation
     mutateCart(cartClone, false)
-    // send POST to update cart
     await updateCart(1, cartClone)
-    // trigger validation
     mutateCart()
   }
 
-  if (prodctError) return <div>failed to load</div>
-  if (isProductLoading) return <div>loading...</div>
+  if (prodctError || cartError) return <div>failed to load</div>
+  if (isProductLoading || isCartLoading) return <div className="loader" />
 
   return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-4 place-self-center">
-      {products.map((product, index) => (
-        <div
-          className="max-w-xs rounded bg-gray-200 overflow-ellipsis m-4"
-          key={index}
-        >
+    <>
+      <NavBar />
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 place-self-center">
+        {products.map((product, index) => (
           <ProductCard
             product={product}
-            index={index}
+            key={index}
             productInCart={cart && product.id in cart}
             productQuantity={
               cart && product.id in cart ? cart[product.id] : null
@@ -54,9 +47,9 @@ const Products = () => {
             addItemToCart={addItemToCart}
             changeItemQuantity={changeItemQuantity}
           />
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   )
 }
 

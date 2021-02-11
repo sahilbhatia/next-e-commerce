@@ -36,7 +36,6 @@ const ProductCard = (props) => {
         {productInCart && (
           <QuantityChanger
             productId={product.id}
-            productInCart={productInCart}
             productQuantity={productQuantity}
             changeItemQuantity={changeItemQuantity}
           />

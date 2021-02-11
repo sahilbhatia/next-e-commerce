@@ -9,7 +9,17 @@ export const useProducts = () => {
   const { data, error } = useSWR('/api/products', fetcher)
   return {
     products: data,
-    error,
-    isLoading: !data && !error
+    prodctError: error,
+    isProductLoading: !data && !error
+  }
+}
+
+export const useCart = (userId) => {
+  const { data, error, mutate } = useSWR(`/api/cart/${userId}`, fetcher)
+  return {
+    cart: data,
+    cartError: error,
+    isCartLoading: !data && !error,
+    mutateCart: mutate
   }
 }

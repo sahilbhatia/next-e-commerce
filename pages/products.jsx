@@ -1,7 +1,6 @@
 import ProductCard from '../components/productCard'
 import NavBar from '../components/navBar'
 import { useProducts, useCart } from '../utils/customSWRHooks'
-// import { updateCart } from '../utils/api'
 
 const Products = () => {
   const { products, prodctError, isProductLoading } = useProducts()
@@ -32,6 +31,7 @@ const Products = () => {
             }
             addItemToCart={addItemToCart}
             changeItemQuantity={changeItemQuantity}
+            showQuantityChanger
           />
         ))}
       </div>

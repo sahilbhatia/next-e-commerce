@@ -13,8 +13,10 @@ const ProductCard = (props) => {
     productInCart,
     productQuantity,
     addItemToCart,
-    changeItemQuantity
+    changeItemQuantity,
+    showQuantityChanger
   } = props
+
   return (
     <div className="max-w-xs rounded bg-gray-200 overflow-ellipsis m-4">
       <div className="px-4 py-4">
@@ -30,7 +32,7 @@ const ProductCard = (props) => {
             productId={product.id}
           />
         )}
-        {productInCart && (
+        {productInCart && showQuantityChanger && (
           <QuantityChanger
             productId={product.id}
             productQuantity={productQuantity}

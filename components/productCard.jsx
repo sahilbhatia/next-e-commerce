@@ -5,6 +5,7 @@ import {
   ProductName,
   ProductPrice
 } from './productDetails'
+import AddToCartButton from './addToCartButton'
 
 const ProductCard = (props) => {
   const {
@@ -24,12 +25,10 @@ const ProductCard = (props) => {
         <ProductCategory category={product.category} />
         <ProductPrice price={product.price} />
         {!productInCart && (
-          <button
-            className="rounded bg-purple-400 hover:bg-purple-700 px-2 py-2 mt-2"
-            onClick={() => addItemToCart(product.id)}
-          >
-            Add to Cart
-          </button>
+          <AddToCartButton
+            addItemToCart={addItemToCart}
+            productId={product.id}
+          />
         )}
         {productInCart && (
           <QuantityChanger

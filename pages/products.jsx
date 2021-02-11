@@ -21,7 +21,7 @@ const Products = () => {
     <>
       <NavBar />
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 place-self-center">
-        {products.map((product, index) => (
+        {Object.values(products).map((product, index) => (
           <ProductCard
             product={product}
             key={index}

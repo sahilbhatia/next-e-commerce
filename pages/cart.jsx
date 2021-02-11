@@ -18,9 +18,7 @@ const Products = () => {
         return (
           productId in products && (
             <ProductCard
-              product={products.find(
-                (product) => product.id === parseInt(productId, 10)
-              )}
+              product={products[productId]}
               key={index}
               productInCart
               productQuantity={cart[productId]}

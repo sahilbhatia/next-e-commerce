@@ -1,26 +1,44 @@
 const products = [
   {
-    thumbnailUrl: '',
+    id: 1,
+    thumbnailUrl: 'https://picsum.photos/id/237/300/300',
     name: 'Banana',
-    category: 'Fruits',
+    category: 'Fruit',
     price: 10
   },
   {
-    thumbnailUrl: '',
+    id: 2,
+    thumbnailUrl: 'https://picsum.photos/id/237/300/300',
     name: 'Spinach',
     category: 'Vegetable',
     price: 100
   },
   {
-    thumbnailUrl: '',
+    id: 3,
+    thumbnailUrl: 'https://picsum.photos/id/237/300/300',
     name: 'Carrot',
-    category: 'Fruits',
+    category: 'Fruit',
     price: 150
   },
   {
-    thumbnailUrl: '',
-    name: '',
-    category: 'Vegetable',
+    id: 4,
+    thumbnailUrl: 'https://picsum.photos/id/237/300/300',
+    name: 'Mango',
+    category: 'Fruit',
+    price: 200
+  },
+  {
+    id: 5,
+    thumbnailUrl: 'https://picsum.photos/id/237/300/300',
+    name: 'Mango',
+    category: 'Fruit',
+    price: 200
+  },
+  {
+    id: 6,
+    thumbnailUrl: 'https://picsum.photos/id/237/300/300',
+    name: 'Mango',
+    category: 'Fruit',
     price: 200
   }
 ]

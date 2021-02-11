@@ -1,4 +1,10 @@
 import QuantityChanger from './quantityChanger'
+import {
+  ProductImage,
+  ProductCategory,
+  ProductName,
+  ProductPrice
+} from './productDetails'
 
 const ProductCard = (props) => {
   const {
@@ -11,21 +17,12 @@ const ProductCard = (props) => {
   return (
     <div className="max-w-xs rounded bg-gray-200 overflow-ellipsis m-4">
       <div className="px-4 py-4">
-        <img src={product.thumbnailUrl} className="w-auto" alt="thumbnail" />
+        <ProductImage thumbnailUrl={product.thumbnailUrl} />
       </div>
       <div className="px-4 py-4">
-        <div className="tracking-wide text-lg">
-          <div className="inline-block font-bold">Name:&nbsp;</div>
-          <div className="inline-block font-bold">{product.name}</div>
-        </div>
-        <div className="tracking-wide">
-          <div className="inline-block text-l">Category:&nbsp;</div>
-          <div className="inline-block text-l">{product.category}</div>
-        </div>
-        <div className="tracking-wide">
-          <div className="inline-block text-l">Price:&nbsp;</div>
-          <div className="inline-block text-sm">₹ {product.price}</div>
-        </div>
+        <ProductName name={product.name} />
+        <ProductCategory category={product.category} />
+        <ProductPrice price={product.price} />
         {!productInCart && (
           <button
             className="rounded bg-purple-400 hover:bg-purple-700 px-2 py-2 mt-2"

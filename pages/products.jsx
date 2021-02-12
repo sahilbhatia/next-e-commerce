@@ -3,7 +3,7 @@ import NavBar from '../components/navBar'
 import { useProducts, useCart } from '../utils/customSWRHooks'
 
 const Products = () => {
-  const { products, prodctError, isProductLoading } = useProducts()
+  const { products, productError, isProductLoading } = useProducts()
 
   // TODO: Use real userId here later
   const {
@@ -14,7 +14,7 @@ const Products = () => {
     changeItemQuantity
   } = useCart(1)
 
-  if (prodctError || cartError) return <div>failed to load data</div>
+  if (productError || cartError) return <div>failed to load data</div>
   if (isProductLoading || isCartLoading) return <div className="loader" />
 
   return (

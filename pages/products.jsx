@@ -32,6 +32,7 @@ const Products = () => {
             addItemToCart={addItemToCart}
             changeItemQuantity={changeItemQuantity}
             showQuantityChanger
+            userId={1}
             renderPattern="portrait"
           />
         ))}

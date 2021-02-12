@@ -1,12 +1,12 @@
 const QuantityChanger = (props) => {
-  const { productId, productQuantity, changeItemQuantity } = props
+  const { productId, productQuantity, changeItemQuantity, userId } = props
 
   return (
     <div>
       <button
         className="inline-block rounded bg-purple-400 hover:bg-purple-700 px-2 py-2 mt-2"
         onClick={() => {
-          changeItemQuantity(productId, productQuantity - 1)
+          changeItemQuantity(userId, productId, productQuantity - 1)
         }}
       >
         -
@@ -19,13 +19,17 @@ const QuantityChanger = (props) => {
         max="99"
         value={productQuantity}
         onChange={(e) => {
-          changeItemQuantity(productId, parseInt(e.target.value, 10) || 1)
+          changeItemQuantity(
+            userId,
+            productId,
+            parseInt(e.target.value, 10) || 1
+          )
         }}
       />
       <button
         className="inline-block rounded bg-purple-400 hover:bg-purple-700 px-2 py-2 mt-2"
         onClick={() => {
-          changeItemQuantity(productId, productQuantity + 1)
+          changeItemQuantity(userId, productId, productQuantity + 1)
         }}
       >
         {' '}

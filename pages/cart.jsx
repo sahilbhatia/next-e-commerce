@@ -24,6 +24,7 @@ const Products = () => {
               productQuantity={cart[productId]}
               changeItemQuantity={changeItemQuantity}
               showQuantityChanger
+              userId={1}
               renderPattern="landscape"
             />
           )

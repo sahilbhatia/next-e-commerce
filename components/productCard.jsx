@@ -14,15 +14,25 @@ const ProductCard = (props) => {
     productQuantity,
     addItemToCart,
     changeItemQuantity,
-    showQuantityChanger
+    showQuantityChanger,
+    userId,
+    renderPattern
   } = props
 
+  const landscape = renderPattern === 'landscape'
+
   return (
-    <div className="max-w-xs rounded bg-gray-200 overflow-ellipsis m-4">
+    <div
+      className={
+        landscape
+          ? 'flex'
+          : 'max-w-xs' + 'rounded bg-gray-200 overflow-ellipsis m-4 '
+      }
+    >
       <div className="px-4 py-4">
         <ProductImage thumbnailUrl={product.thumbnailUrl} />
       </div>
-      <div className="px-4 py-4">
+      <div className={landscape ? 'flex' : 'block ' + 'px-4 py-4'}>
         <ProductName name={product.name} />
         <ProductCategory category={product.category} />
         <ProductPrice price={product.price} />
@@ -30,6 +40,7 @@ const ProductCard = (props) => {
           <AddToCartButton
             addItemToCart={addItemToCart}
             productId={product.id}
+            userId={userId}
           />
         )}
         {productInCart && showQuantityChanger && (
@@ -37,6 +48,7 @@ const ProductCard = (props) => {
             productId={product.id}
             productQuantity={productQuantity}
             changeItemQuantity={changeItemQuantity}
+            userId={userId}
           />
         )}
       </div>

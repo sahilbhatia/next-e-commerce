@@ -14,23 +14,29 @@ export const useProducts = () => {
 export const useCart = (userId) => {
   const { data, error, mutate } = useSWR(`/api/cart/${userId}`, fetcher)
 
-  const changeItemQuantity = async (productId, quantity) => {
+  const changeItemQuantity = async (userId, productId, quantity) => {
     const cartClone = { ...data }
     if (quantity < 1) {
       delete cartClone[productId]
     } else {
       cartClone[productId] = quantity
     }
+    // mutate locally only
     mutate(cartClone, false)
-    await updateCart(1, cartClone)
+    // hit post request
+    await updateCart(userId, cartClone)
+    // reavalidate
     mutate()
   }
 
-  const addItemToCart = async (productId) => {
+  const addItemToCart = async (userId, productId) => {
     const cartClone = { ...data }
     cartClone[productId] = 1
+    // mutate locally only
     mutate(cartClone, false)
-    await updateCart(1, cartClone)
+    // hit post request
+    await updateCart(userId, cartClone)
+    // reavalidate
     mutate()
   }
 

@@ -1,6 +1,6 @@
 import ProductCard from '../components/productCard'
 import NavBar from '../components/navBar'
-import { TotalPrice } from '../components/productDetails'
+import TotalPrice from '../components/totalPrice'
 import { useProducts, useCart } from '../utils/customSWRHooks'
 
 const Products = () => {

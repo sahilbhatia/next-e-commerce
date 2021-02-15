@@ -1,11 +1,10 @@
 import QuantityChanger from './quantityChanger'
-import {
-  ProductImage,
-  ProductCategory,
-  ProductName,
-  ProductPrice,
-  TotalPrice
-} from './productDetails'
+import ProductImage from './productImage'
+import ProductCategory from './productCategory'
+import ProductName from './productName'
+import ProductPrice from './productPrice'
+import TotalPrice from './totalPrice'
+
 import AddToCartButton from './addToCartButton'
 
 const ProductCard = (props) => {

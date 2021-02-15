@@ -23,14 +23,14 @@ const products = {
   4: {
     id: 4,
     thumbnailUrl: 'https://picsum.photos/id/1010/300/300',
-    name: 'Mango',
+    name: 'Cherry',
     category: 'Fruit',
     price: 200
   },
   5: {
     id: 5,
     thumbnailUrl: 'https://picsum.photos/id/124/300/300',
-    name: 'Mango',
+    name: 'Apple',
     category: 'Fruit',
     price: 200
   },

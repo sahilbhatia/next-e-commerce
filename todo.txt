@@ -1,0 +1,4 @@
+use absolute paths for importing modules
+make the integer input small
+layouting - pre login post login
+look into SSO - google

@@ -1,7 +1,9 @@
 import ProductCard from '../components/productCard'
 import NavBar from '../components/navBar'
 import TotalPrice from '../components/totalPrice'
-import { useProducts, useCart } from '../utils/customSWRHooks'
+
+import useCart from '../swrHooks/cart'
+import useProducts from '../swrHooks/products'
 
 const Products = () => {
   const { products, productError, isProductLoading } = useProducts()

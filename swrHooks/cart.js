@@ -1,17 +1,9 @@
 import useSWR from 'swr'
-import fetcher from './fetcher'
-import { updateCart } from './api'
 
-export const useProducts = () => {
-  const { data, error } = useSWR('/api/products', fetcher)
-  return {
-    products: data,
-    prodctError: error,
-    isProductLoading: !data && !error
-  }
-}
+import fetcher from '../utils/fetcher'
+import { updateCart } from '../utils/api'
 
-export const useCart = (userId) => {
+const useCart = (userId) => {
   const { data, error, mutate } = useSWR(`/api/cart/${userId}`, fetcher)
 
   const changeItemQuantity = async (userId, productId, quantity) => {
@@ -25,7 +17,7 @@ export const useCart = (userId) => {
     mutate(cartClone, false)
     // hit post request
     await updateCart(userId, cartClone)
-    // reavalidate
+    // revalidate
     mutate()
   }
 
@@ -36,7 +28,7 @@ export const useCart = (userId) => {
     mutate(cartClone, false)
     // hit post request
     await updateCart(userId, cartClone)
-    // reavalidate
+    // revalidate
     mutate()
   }
 
@@ -49,3 +41,5 @@ export const useCart = (userId) => {
     changeItemQuantity
   }
 }
+
+export default useCart

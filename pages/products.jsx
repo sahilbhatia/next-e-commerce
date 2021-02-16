@@ -1,6 +1,8 @@
 import ProductCard from '../components/productCard'
 import NavBar from '../components/navBar'
-import { useProducts, useCart } from '../utils/customSWRHooks'
+
+import useCart from '../swrHooks/cart'
+import useProducts from '../swrHooks/products'
 
 const Products = () => {
   const { products, productError, isProductLoading } = useProducts()
@@ -42,3 +44,8 @@ const Products = () => {
 }
 
 export default Products
+
+// ssr hooks in separate files
+// use absolute paths for importing modules
+// make the integer input small
+// layouting - pre login post login

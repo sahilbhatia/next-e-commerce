@@ -44,8 +44,3 @@ const Products = () => {
 }
 
 export default Products
-
-// ssr hooks in separate files
-// use absolute paths for importing modules
-// make the integer input small
-// layouting - pre login post login
